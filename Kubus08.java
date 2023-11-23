@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Kubus08 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String mahasiswa [] = {"Sari", "Rina", "Yani", "Dwi", "Lusi"};
+        // String mahasiswa [] = {"Sari", "Rina", "Yani", "Dwi", "Lusi"};
         
         System.out.print("Masukkan jumlah mahasiswa: ");
         int jumlahMahasiswa = input.nextInt();
@@ -14,9 +14,11 @@ public class Kubus08 {
         int[][] nilai = new int[jumlahMahasiswa][jumlahTugas];
         // int nilai [][] = new int[5][7];
         int inputNilai[][] = inputNilai(nilai);
-        showNilai(inputNilai, mahasiswa);
+        // showNilai(inputNilai, mahasiswa);
+        showNilai(inputNilai);
         System.out.println("Minggu nilai tertinggi adalah "+ cariMingguNilaiTertinggi(inputNilai));
-        tampilkanMahasiswaNilaiTertinggi(inputNilai, mahasiswa);
+        // tampilkanMahasiswaNilaiTertinggi(inputNilai, mahasiswa);
+        tampilkanMahasiswaNilaiTertinggi(inputNilai);
     }
 
     public static int[][] inputNilai(int[][] nilai){
@@ -32,11 +34,11 @@ public class Kubus08 {
         return nilai;
     } 
 
-    public static void showNilai(int[][] nilai, String[] mahasiswa){
+    public static void showNilai(int[][] nilai){
         for(int i=0; i<nilai.length; i++ ){
-            System.out.println("Nilai "+mahasiswa[i]+": ");
+            System.out.println("Nilai Mahasiswa ke"+(i+1+": ");
             for(int j=0; j<nilai[i].length; j++ ){
-                System.out.println("   Nilai "+mahasiswa[i]+" minggu ke -"+(j+1)+ ": " + nilai[i][j]);
+                System.out.println("   Nilai Mahasiswa ke- "+(i+1)+" minggu ke -"+(j+1)+ ": " + nilai[i][j]);
             }
             System.out.println();
         }
@@ -58,21 +60,21 @@ public class Kubus08 {
         return mingguNilaiTertinggi;
     }
 
-    public static void tampilkanMahasiswaNilaiTertinggi(int[][] nilai, String[]mahasiswa) {
+    public static void tampilkanMahasiswaNilaiTertinggi(int[][] nilai) {
         int nilaiTertinggi = nilai[0][0];
-        String mahasiswaNilaiTertinggi = "";
+        int mahasiswaNilaiTertinggi = 0;
         int mingguNilaiTertinggi = 1;
     
         for (int i = 0; i < nilai.length; i++) {
             for (int j = 0; j < nilai[i].length; j++) {
                 if (nilai[i][j] > nilaiTertinggi) {
                     nilaiTertinggi = nilai[i][j];
-                    mahasiswaNilaiTertinggi = mahasiswa[i];
+                    mahasiswaNilaiTertinggi = i;
                     mingguNilaiTertinggi = j + 1;
                 }
             }
         }
     
-        System.out.println("Mahasiswa dengan nilai tertinggi adalah " + mahasiswaNilaiTertinggi + " dengan nilai " + nilaiTertinggi + " pada minggu ke-" + mingguNilaiTertinggi);
+        System.out.println("Mahasiswa dengan nilai tertinggi adalah mahasiswa ke-  " + mahasiswaNilaiTertinggi + " dengan nilai " + nilaiTertinggi + " pada minggu ke-" + mingguNilaiTertinggi);
     }
 }
