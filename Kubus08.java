@@ -36,7 +36,7 @@ public class Kubus08 {
 
     public static void showNilai(int[][] nilai){
         for(int i=0; i<nilai.length; i++ ){
-            System.out.println("Nilai Mahasiswa ke"+(i+1+": ");
+            System.out.println("Nilai Mahasiswa ke"+(i+1)+": ");
             for(int j=0; j<nilai[i].length; j++ ){
                 System.out.println("   Nilai Mahasiswa ke- "+(i+1)+" minggu ke -"+(j+1)+ ": " + nilai[i][j]);
             }
